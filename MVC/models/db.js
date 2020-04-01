@@ -49,3 +49,5 @@ process.on('SIGTERM', () => {
 
 require('./User');
 require('./Product');
+require('./Contact');
+require('./Topic');

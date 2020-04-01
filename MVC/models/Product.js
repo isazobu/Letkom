@@ -1,9 +1,19 @@
 var mongoose = require('mongoose');
 
-const productSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    surname: String
+var CategorySchema = new mongoose.Schema({
+    name: String
 })
 
-module.exports = mongoose.model('Product', productSchema);
+
+const productSchema = new mongoose.Schema({
+    title: String,
+    content: String,
+    cost: Number,
+    category: { type: CategorySchema, require: true }
+})
+product = mongoose.model('Product', productSchema);
+category = mongoose.model('Category', CategorySchema);
+module.exports = {
+    product,
+    category
+}
